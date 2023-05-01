@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+}
+
+#login {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('/assets/img/3538928.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.login-content {
+    width: 40%;
+    padding: 5rem;
+    border-radius: 1rem;
+    color: white;
+    background-color: rgba(49,35,171,0.5);
+    backdrop-filter: blur(10px);
+}
+
+.error {
+    color: red;
+    font-size: 0.8rem;
+}
+
+a {
+    color: white;
+}
