@@ -15,4 +15,10 @@ class Controller
         $loader = new FilesystemLoader(__DIR__.'/../templates');
         $this->twig = new Environment($loader);
     }
+
+    public function isUserLogged()
+    {
+        session_start();
+        return isset($_SESSION['user_connected']) && $_SESSION['user_connected'] == true;
+    }
 }

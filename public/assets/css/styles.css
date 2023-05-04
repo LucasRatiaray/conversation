@@ -1,37 +1,42 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+#navbar {
+  background-color: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f5f5f5;
+#main {
+  margin-top: 4rem;
+  width: 100%;
+  height: 100%;
 }
 
-#login {
-    width: 100%;
-    min-height: 100vh;
-    background-image: url('/assets/img/3538928.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.card {
+  background-color: rgba(255,255,255,0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: none;
 }
 
-.login-content {
-    width: 40%;
-    padding: 5rem;
-    border-radius: 1rem;
-    color: white;
-    background-color: rgba(49,35,171,0.5);
-    backdrop-filter: blur(10px);
+form {
+  width: 60%;
 }
 
-.error {
-    color: red;
-    font-size: 0.8rem;
+.btn {
+  background-color: rgb(49,35,171);
+  border: rgb(49,35,171);
+}
+
+.bs-icon-xl.bs-icon-circle.bs-icon-primary.bs-icon {
+  background-color: rgb(49,35,171);
+}
+
+.text-muted {
+  color: rgba(255,255,255,0.75) !important;
 }
 
 a {
-    color: white;
+  text-decoration: none !important;
 }

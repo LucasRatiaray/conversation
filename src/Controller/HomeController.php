@@ -6,6 +6,12 @@ class HomeController extends Controller
 {
     public function index()
     {
-        echo $this->twig->render('security/index.html.twig');
+        if($this->isUserLogged()) {
+            echo $this->twig->render('home/index.html.twig',[
+                'user' => $_SESSION['user']
+            ]);
+        } else {
+            echo $this->twig->render('security/index.html.twig');
+        }
     }
 }

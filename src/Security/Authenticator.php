@@ -25,14 +25,4 @@ class Authenticator
             }
         }
     }
-
-    public function logout()
-    {
-        unset($_SESSION['user']);
-    }
-
-    public function isLogged()
-    {
-        return isset($_SESSION['user']);
-    }
 }
