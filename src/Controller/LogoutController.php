@@ -16,9 +16,9 @@ class LogoutController extends Controller
 
     public function isUserLogout()
     {
-        session_start();
         if(isset($_SESSION['user_connected']) && $_SESSION['user_connected'] == true){
-            unset($_SESSION['user_connected']);
+            session_destroy();
+            header('Location: /');
         }
     }
 }

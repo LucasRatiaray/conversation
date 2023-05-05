@@ -11,6 +11,7 @@ class Controller
 
     public function __construct()
     {
+        session_start();
         // initialisation de Twig
         $loader = new FilesystemLoader(__DIR__.'/../templates');
         $this->twig = new Environment($loader);
@@ -18,7 +19,11 @@ class Controller
 
     public function isUserLogged()
     {
-        session_start();
         return isset($_SESSION['user_connected']) && $_SESSION['user_connected'] == true;
+    }
+
+    public function isUserCreated()
+    {
+        return isset($_SESSION['user_created']) && $_SESSION['user_created'] == true;
     }
 }
