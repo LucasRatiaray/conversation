@@ -11,4 +11,11 @@ class User extends Model
         $query->execute([$pseudo]);
         return $query->fetch();
     }
+
+    public function createUser($name, $firstname, $pseudo, $password, $email)
+    {
+        $sql = 'INSERT INTO users (name, firstname, pseudo, password, email) VALUES (?, ?, ?, ?, ?)';
+        $query = self::$instance->prepare($sql);
+        $query->execute([$name, $firstname, $pseudo, $password, $email]);
+    }
 }

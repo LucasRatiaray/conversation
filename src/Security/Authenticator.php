@@ -17,7 +17,7 @@ class Authenticator
     {
         $user = $this->user->getUserByPseudo($pseudo);
         if($user){
-            if($user->password === $password){
+            if(password_verify($password, $user->password)){
                 $_SESSION['user'] = $user;
                 return true;
             } else {
@@ -26,13 +26,19 @@ class Authenticator
         }
     }
 
-    public function logout()
+    public function singup($name, $firstname, $pseudo, $password, $password_confirm, $email)
     {
-        unset($_SESSION['user']);
-    }
-
-    public function isLogged()
-    {
-        return isset($_SESSION['user']);
+        if($password === $password_confirm){
+            $password = password_hash($password, PASSWORD_DEFAULT);
+            $user = $this->user->getUserByPseudo($pseudo);
+            if(!$user){
+                $this->user->createUser($name, $firstname, $pseudo, $password, $email);
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 }

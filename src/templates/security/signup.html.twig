@@ -1,48 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" style="background: url(&quot;assets/img/3538928.jpg&quot;) center / cover no-repeat;">
+<html lang="en" style="background: url(&quot;assets/img/5390139.jpg&quot;) center / cover no-repeat;">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Conversation</title>
+    <title>conversation</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Play&amp;display=swap">
     <link rel="stylesheet" href="assets/css/Navbar-Right-Links-icons.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body style="font-family: Play, sans-serif;background: transparent;">
+<body style="background: transparent;font-family: Play, sans-serif;">
     <nav class="navbar navbar-light navbar-expand-md py-3" id="navbar">
         <div class="container">
-            <div class="collapse navbar-collapse d-flex justify-content-end" id="navcol-2"><a class="btn btn-primary ms-md-2" role="button" href="/signup">Créer un compte</a></div>
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navcol-2"><a class="btn btn-primary ms-md-2" role="button" href="/login">Se connecter</a></div>
         </div>
     </nav>
     <section id="main" class="pt-5">
         <div class="container">
             <div class="row mb-2">
                 <div class="col-md-8 col-lg-7 col-xl-6 text-center mx-auto">
-                    {% if success %}
-                    <div class="alert alert-success">{{ success }}</div>
-                    {% endif %}
-                    <h2 class="text-white">Connectez-vous</h2>
-                    <p class="text-muted">Bonjour et bienvenue ! Veuillez-vous connecter afin de pouvoir profiter de toutes les fonctionnalités.</p>
+                    <h2 class="text-white">Créer un compte</h2>
+                    <p class="text-muted">Bonjour et bienvenue ! Veuillez-vous créer un compte afin de pouvoir profiter de toutes les fonctionnalités.</p>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-5">
-                    <div class="card mb-5">
+                    <div class="card">
                         <div class="card-body d-flex flex-column align-items-center">
                             <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person">
                                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
                                 </svg></div>
-                            <form class="text-center" method="post" action="/login">
-                                {% if error %}
-                                <div class="alert alert-danger">{{ error }}</div>
-                                {% endif %}
-                                <div class="mb-3"><input class="form-control" type="text" name="pseudo" placeholder="Pseudo" required></div>
+                            <form class="text-center" method="post">
+                                <div class="mb-3 row d-flex">
+                                    <div class="col-xxl-6"><input class="form-control" type="text" name="name" placeholder="Nom" required></div>
+                                    <div class="col-xxl-6"><input class="form-control" type="text" name="firstname" placeholder="Prénom" required></div>
+                                </div>
+                                <div class="mb-3"><input class="form-control" type="textclear
+                                " name="pseudo" placeholder="Pseudo" required></div>
+                                <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Adresse email" required></div>
                                 <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Mot de passe" required></div>
-                                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Se connecter</button></div>
-                                <a href="#"<p class="text-muted">Mot de passe oublé ?</p></a>
+                                <div class="mb-3"><input class="form-control" type="password" name="password_confirm" placeholder="Confirmer le mot de passe" required></div>
+                                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" name="submit">Envoyer</button></div>
+                                <p class="text-muted">Vous avez déjà un compte ?</p>
                             </form>
                         </div>
                     </div>
