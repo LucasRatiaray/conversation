@@ -5,6 +5,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1000;
 }
 
 #main {
@@ -17,7 +18,6 @@
   background-color: rgba(255,255,255,0.2);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: none;
 }
 
 form {
@@ -37,6 +37,61 @@ form {
   color: rgba(255,255,255,0.75) !important;
 }
 
-a {
-  text-decoration: none !important;
+.container-content {
+  margin-top: 6rem;
+  height: 100%;
+  width: 100%;
+}
+
+.profil {
+  border-radius: 50%;
+}
+
+.info-content {
+  width: 100%;
+}
+
+.name {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat {
+  width: 100%;
+  height: 65vh;
+}
+
+.message {
+  width: 70%;
+}
+
+.send-message {
+  width: 100%;
+}
+
+.send {
+  background-color: green;
+}
+
+.my-card {
+  background-color: rgb(245,245,245);
+}
+
+row {
+  width: 100%;
+}
+
+.text-receive {
+  background-color: rgba(59,59,61,0.7);
+  color: white;
+  border-radius: 0.2rem;
+}
+
+.text-send {
+  background-color: var(--bs-blue);
+  color: white;
+  border-radius: 0.2rem;
 }
