@@ -26,4 +26,10 @@ class Controller
     {
         return isset($_SESSION['user_created']) && $_SESSION['user_created'] == true;
     }
+
+    public function loadModel($model)
+    {
+        $model = 'App\\Model\\'.$model;
+        return new $model();
+    }
 }

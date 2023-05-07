@@ -8,7 +8,8 @@ class HomeController extends Controller
     {
         if($this->isUserLogged()) {
             echo $this->twig->render('home/index.html.twig',[
-                'user' => $_SESSION['user']
+                'user' => $_SESSION['user'],
+                'conversation' => $this->loadModel('Conversations')->getConversations()
             ]);
         } else if($this->isUserCreated()) {
             echo $this->twig->render('security/index.html.twig', [
@@ -16,7 +17,7 @@ class HomeController extends Controller
                 'success' => 'Votre compte a bien été créé.'
             ]);
         } else {
-            header('Location: /login');
+            echo $this->twig->render('security/index.html.twig');
         }
     }
 }
