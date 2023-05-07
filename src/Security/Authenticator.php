@@ -19,6 +19,11 @@ class Authenticator
         if($user){
             if(password_verify($password, $user->password)){
                 $_SESSION['user'] = $user;
+                $_SESSION['user']->id = intval($user->id);
+                $_SESSION['user']->name = $user->name;
+                $_SESSION['user']->firstname = $user->firstname;
+                $_SESSION['user']->pseudo = $user->pseudo;
+                $_SESSION['user']->email = $user->email;
                 return true;
             } else {
                 return false;
