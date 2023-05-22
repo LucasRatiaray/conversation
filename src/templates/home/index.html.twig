@@ -11,80 +11,55 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body style="font-family: Play, sans-serif;background: transparent;">
-    <nav class="navbar navbar-light navbar-expand-md py-3" id="navbar" style="background: rgba(0,0,0,0.4);">
-        <div class="container">
-            <div class="collapse navbar-collapse d-flex justify-content-end" id="navcol-2"><a class="btn btn-primary ms-md-2" role="button" href="/logout" style="background: rgb(190,53,61);">Se déconnecter</a></div>
-        </div>
-    </nav>
-    <div class="container container-content">
-        <div class="row">
-            <div class="col-xxl-4 mb-4">
-                <div class="card my-card">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center"><img class="profil" width="100" height="80" src="assets/img/world.jpg">
-                            <div class="info-content">
-                                <h4 class="ms-3 mb-0">World</h4>
-                                <div class="name">
-                                    <p class="ms-3">admin : bonjour à tous !!</p>
-                                    <h6 class="text-secondary">Hier</h6>
-                                </div>
-                            </div>
-                        </div>
+<body>
+    <section class="section d-flex justify-content-center align-items-center flex-column" style="background: url(&quot;assets/img/3440860.jpg&quot;) center / cover no-repeat;">
+        <div class="chat1" style="background: #ffffff;border-radius: 0.3rem;border-top-left-radius: 0.3rem;border-top-right-radius: 0.3rem;border-bottom-right-radius: 0;border-bottom-left-radius: 0;">
+            <div class="content-top d-flex justify-content-end" style="border-top-left-radius: 0.3rem;border-top-right-radius: 0.3rem;background: var(--bs-teal);"><a href="/logout"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="me-3 mt-1" style="font-size: 30px;">
+                    <path d="M8.51428 20H4.51428C3.40971 20 2.51428 19.1046 2.51428 18V6C2.51428 4.89543 3.40971 4 4.51428 4H8.51428V6H4.51428V18H8.51428V20Z" fill="currentColor"></path>
+                    <path d="M13.8418 17.385L15.262 15.9768L11.3428 12.0242L20.4857 12.0242C21.038 12.0242 21.4857 11.5765 21.4857 11.0242C21.4857 10.4719 21.038 10.0242 20.4857 10.0242L11.3236 10.0242L15.304 6.0774L13.8958 4.6572L7.5049 10.9941L13.8418 17.385Z" fill="currentColor"></path>
+                </svg></a></div>
+            <div class="message-box p-3">
+            {% if conversations is defined and conversations|length > 0 %}
+    {% for m in conversations %}
+        <div class="mt-3">
+            <div class="row">
+                {% if m.user_id == connected_user_id %}
+                    <div class="col-9 col-sm-9 col-xl-10 col-xxl-10 message d-flex justify-content-center align-items-center flex-column">
+                        <p class="text-message p-2" style="background: rgba(32,201,151,0.45);border-radius: 0.3rem;">{{ m.message }}</p>
+                        <p>{{ m.date_envoi|date("H:i") }}</p>
                     </div>
-                </div>
-            </div>
-            <div class="col pb-3 mb-4 card my-card">
-                <h1 class="text-center pt-3">World</h1>
-                <div class="row chat">
-                    <div class="col">
-                        <div class="row">
-                            <div class="col">
-                                <div class="d-flex align-items-center"><img class="profil" width="100" height="80" src="assets/img/world.jpg">
-                                    <div class="info-content">
-                                        <div class="name">
-                                            <div>
-                                                <p class="ms-3 text-uppercase">admin :</p>
-                                                <p class="ms-3 p-1 text-receive">bonjour à tous !!</p>
-                                            </div>
-                                            <h6 class="text-secondary me-5">Hier 21:02</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="d-flex align-items-center">
-                                    <div class="info-content">
-                                        <div class="name">
-                                            <h6 class="text-secondary ms-5">Hier 22:38</h6>
-                                            <div>
-                                                <p class="me-3 d-flex justify-content-end text-uppercase">admin :&nbsp;</p>
-                                                <p class="me-3 p-1 text-send">bonjour à tous !!</p>
-                                            </div>
-                                        </div>
-                                    </div><img class="profil" width="100" height="80" src="assets/img/world.jpg">
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-3 col-sm-3 col-xl-2 d-flex justify-content-center flex-column">
+                        <img class="profile" src="assets/img/3440860.jpg" style="border-radius: 50%;">
+                        <p>{{ m.user_pseudo }}</p>
                     </div>
-                </div>
-                <div class="row border-top pt-3">
-                    <div class="col">
-                        <form class="d-flex align-items-center send-message" method="post" action="/conv"><a class="ms-3" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-emoji-laughing-fill" style="font-size: 20px;color: rgb(49,35,171);">
-                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5c0 .501-.164.396-.415.235C6.42 6.629 6.218 6.5 6 6.5c-.218 0-.42.13-.585.235C5.164 6.896 5 7 5 6.5 5 5.672 5.448 5 6 5s1 .672 1 1.5zm5.331 3a1 1 0 0 1 0 1A4.998 4.998 0 0 1 8 13a4.998 4.998 0 0 1-4.33-2.5A1 1 0 0 1 4.535 9h6.93a1 1 0 0 1 .866.5zm-1.746-2.765C10.42 6.629 10.218 6.5 10 6.5c-.218 0-.42.13-.585.235C9.164 6.896 9 7 9 6.5c0-.828.448-1.5 1-1.5s1 .672 1 1.5c0 .501-.164.396-.415.235z"></path>
-                                </svg></a><input class="form-control form-control message ms-3" type="text" name="message"><a class="ms-3" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="font-size: 20px;color: rgb(0,0,0);">
-                                    <path d="M14 0C16.7614 0 19 2.23858 19 5V17C19 20.866 15.866 24 12 24C8.13401 24 5 20.866 5 17V9H7V17C7 19.7614 9.23858 22 12 22C14.7614 22 17 19.7614 17 17V5C17 3.34315 15.6569 2 14 2C12.3431 2 11 3.34315 11 5V17C11 17.5523 11.4477 18 12 18C12.5523 18 13 17.5523 13 17V6H15V17C15 18.6569 13.6569 20 12 20C10.3431 20 9 18.6569 9 17V5C9 2.23858 11.2386 0 14 0Z" fill="currentColor"></path>
-                                </svg></a><button class="btn btn-primary ms-5 send" type="submit" name="submit"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-send-fill" style="font-size: 20px;">
-                                    <path fill-rule="evenodd" d="M15.964.686a.5.5 0 0 0-.65-.65l-.095.038L.767 5.854l-.001.001-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.563 2.903.432.275.275.432 2.903 4.563.002.002.26.41a.5.5 0 0 0 .886-.083l.181-.453L15.926.78l.038-.095Zm-1.833 1.89.471-1.178-1.178.471L5.93 9.363l.338.215a.5.5 0 0 1 .154.154l.215.338 7.494-7.494Z"></path>
-                                </svg></button>
-                        </form>
+                {% else %}
+                    <div class="col-3 col-sm-3 col-xl-2 d-flex justify-content-center flex-column">
+                        <img class="profile" src="assets/img/3440860.jpg" style="border-radius: 50%;">
+                        <p>{{ m.user_pseudo }}</p>
                     </div>
-                </div>
+                    <div class="col-9 col-sm-9 col-xl-10 col-xxl-10 message1 d-flex justify-content-center align-items-center flex-column">
+                        <p class="text-message p-2" style="background: rgba(32,201,151,0.45);border-radius: 0.3rem;">{{ m.message }}</p>
+                        <p>{{ m.date_envoi|date("H:i") }}</p>
+                    </div>
+                {% endif %}
             </div>
         </div>
-    </div>
+    {% endfor %}
+{% else %}
+    <p>Aucun message</p>
+{% endif %}
+
+            </div>
+        </div>
+        <div class="from-message pt-2" style="border-bottom-right-radius: 0.3rem;border-bottom-left-radius: 0.3rem;background: #ffffff;">
+            <form style="width: 100%;height: 100%;" method="post" action="/send">
+                <div class="row mb-2" style="height: 100%;">
+                    <div class="col-sm-11 col-md-8 col-lg-9 col-xl-9" style="height: 100%;"><textarea class="form-control ms-4 mb-2" name="message" placeholder="Ecrire un message ..." required="" rows="1"></textarea></div>
+                    <div class="col d-flex justify-content-center" style="height: 100%;"><button class="btn btn-primary d-flex justify-content-center align-items-center" type="submit">Envoyer</button></div>
+                </div>
+            </form>
+        </div>
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

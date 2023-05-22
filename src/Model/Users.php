@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class User extends Model
+class Users extends Model
 {
     public function getUserByPseudo($pseudo)
     {
@@ -17,5 +17,13 @@ class User extends Model
         $sql = 'INSERT INTO users (name, firstname, pseudo, password, email) VALUES (?, ?, ?, ?, ?)';
         $query = self::$instance->prepare($sql);
         $query->execute([$name, $firstname, $pseudo, $password, $email]);
+    }
+
+    public function getPseudo()
+    {
+        $sql = 'SELECT pseudo FROM users';
+        $query = self::$instance->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
     }
 }

@@ -1,7 +1,4 @@
 #navbar {
-  background-color: rgba(255,255,255,0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   position: fixed;
   top: 0;
   width: 100%;
@@ -95,3 +92,58 @@ row {
   color: white;
   border-radius: 0.2rem;
 }
+
+/* ---- */
+
+section {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.chat1 {
+  width: 50%;
+}
+
+.message-box {
+  width: 100%;
+  min-height: 70vh;
+  max-height: 70vh;
+  overflow: auto;
+}
+
+.from-message {
+  width: 50%;
+  min-height: 7vh;
+}
+
+.content-top {
+  width: 100%;
+  height: 6vh;
+}
+
+.message1 {
+  min-height: 10vh;
+}
+
+.date {
+  height: 5vh;
+}
+
+.text-message {
+  width: 100%;
+  height: 80%;
+}
+
+.profile {
+  width: 60px;
+  height: 60px;
+}
+
+.btn {
+  height: 5vh;
+}
+
+textarea {
+  width: 90% !important;
+}
+

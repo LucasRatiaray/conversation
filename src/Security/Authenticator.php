@@ -2,7 +2,7 @@
 
 namespace App\Security;
 
-use App\Model\User;
+use App\Model\Users;
 
 class Authenticator
 {
@@ -10,7 +10,7 @@ class Authenticator
 
     public function __construct()
     {
-        $this->user = new User();
+        $this->user = new Users();
     }
 
     public function login($pseudo, $password)
